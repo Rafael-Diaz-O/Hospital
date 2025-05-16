@@ -1,0 +1,5 @@
+EPS,Grupo Sanguíneo,ID
+SaludTotal,A+,001
+Sura,B-,002
+Compensar,O+,003
+Coomeva,A-,004
