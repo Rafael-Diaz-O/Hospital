@@ -15,7 +15,7 @@ public class Persona {
         this.nombre = nombre; 
         this.cedula = cedula; 
         
-        //
+        //si se pudo
     }
     
     
