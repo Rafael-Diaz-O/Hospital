@@ -98,7 +98,7 @@ public class Menu {
         ArrayList<Paciente> pacientes;
 
         System.out.println("Creando la lista de Paciente");
-        pacientes = readPacientes("C:\\\\Users\\\\valen\\\\OneDrive\\\\Documentos\\\\SEMESTRE_2025-1\\\\PROGRAMACION_ORIENTADA_A_OBJETOS\\\\PROYECTO\\\\Menu\\\\info_pacientes.txt");
+        pacientes = readPacientes("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\Menu\\info_pacientes.txt");
 
         System.out.println("\nINFORMACION DE PACIENTES");
         for (Paciente p : pacientes) {
@@ -113,7 +113,7 @@ public class Menu {
         */
 
         System.out.println("\nCreando lista de Historias Clinicas");
-        historiaClinicas = readHistoriaClinica("C:\\\\Users\\\\valen\\\\OneDrive\\\\Documentos\\\\SEMESTRE_2025-1\\\\PROGRAMACION_ORIENTADA_A_OBJETOS\\\\PROYECTO\\\\Menu\\\\info_historiaClinicas.txt", pacientes);
+        historiaClinicas = readHistoriaClinica("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\\\Menu\\info_historiaClinicas.txt", pacientes);
 
         System.out.println("\nINFORMATION DE HISTORIAS CLINICAS\n");
        // System.out.println("| %-15s | %-15s | %-20s | %-25s | %-15s | %-10s | %-10s |\n","HORA","FECHA","DIAGNOSTICO","EPS","TIPO DE SAGRE","ID");
