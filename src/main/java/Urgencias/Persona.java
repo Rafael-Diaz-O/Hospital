@@ -12,7 +12,7 @@ public class Persona {
     
     
     public Persona (String nombre,String cedula,int edad, String genero){
-        
+        this.nombre = nombre; 
     }
     
     
