@@ -9,7 +9,7 @@ public class Persona {
     private String cedula;
     private int edad;
     private String genero;
-    private String algo;
+    
    
     public Persona(){};
     
