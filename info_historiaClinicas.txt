@@ -1,0 +1,5 @@
+HoraIngreso,FechaIngreso,DiagnosticoYRecomendaciones,Incapacidad,IDPaciente
+08:00,2025-05-01,Gripe leve,Reposo de 3 dias,001
+09:00,2025-05-02,Fractura de brazo,Yeso por 4 semanas,002
+10:00,2025-05-03,Resfriado comun,Reposo de 2 dias,003
+11:00,2025-05-04,Infeccion urinaria,Tratamiento antibiotico,004
