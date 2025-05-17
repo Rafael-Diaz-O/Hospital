@@ -46,6 +46,8 @@ public String getIdPersonal(){
 public String getNombrePersonal(){
     return this.nombrePersonal;
 }
+public abstract String turno();
+
 @Override
 public String toString(){
     String str = this.nombrePersonal + "," + this.idPersonal + "," + this.tareas;
