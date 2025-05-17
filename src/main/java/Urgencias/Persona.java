@@ -1,5 +1,4 @@
 
-
 package Urgencias;
 
 
@@ -10,89 +9,80 @@ public class Persona {
     private int edad;
     private String genero;
     
-   
     public Persona(){};
     
     
- 
     public Persona (String nombre,String cedula,int edad, String genero){
         this.nombre = nombre; 
         this.cedula = cedula; 
         this.edad = edad;
-        this.genero = genero; 
+        this.genero = genero;
     }
     
-    
-    public void setName(String nombre){
-        if(nombre == null || nombre.isBlank()|| nombre.matches(".*[-!@#$%^&*()+=<>?/]*.")){
-            throw new IllegalArgumentException("Este nombre no es valido");
-        }
-        else {
-            this.nombre = nombre; 
-        }
-    
-    }
-    
-    public void setCedula (String cedula ){
-        //investigar como validar el que no me puedan escribir palabras solo numeros
-        if(cedula == null|| cedula.isBlank() || cedula.matches(".*[-!@#$%^&*()+=<>?/]*.")){
-            throw new IllegalArgumentException("Valores no validos porfavor ingrese solo numeros");
-        }else 
-        {
-            this.cedula = cedula; 
+    public void setNombre(String nombre){
+        if(nombre == null || nombre.isBlank() || nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){ //Sirve para validar datos enteramente de letras y no de numeros, asi como mombres con acentuacion
+            throw new IllegalArgumentException("El nombre es incorrecto");
+        }else{
+            this.nombre = nombre;
         }
     }
     
-    // investiar como pasar de entero a string para validar 
-    /*
+    public void setCedula(String cedula){
+        if(cedula == null || cedula.isBlank() || cedula.matches("\\d{10}")){ //Limitar el ingreso de datos 10 digitos
+           throw new IllegalArgumentException("La cedula es incorrecta");
+        }
+        else{
+            this.cedula = cedula;
+        }
+    }
+    
+    
     public void setEdad(int edad){
-        if(edad = null || edad.isBlank ||edad.matches(".*[-!@#$%^&*()+=<>?/]*.") ){
-            throw new IllegalArgumentException("Datos inscorrectos por favor use solo numeros");
+        if(edad < 0 || edad > 130){
+            throw new IllegalArgumentException("La edad debe estar dentro del rango de 0 a 130");
+        }else{
+            this.edad = edad;
         }
-    }
-    
-    */
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
     
     public void setGenero(String genero){
-        if(genero == null || genero.isBlank()|| genero.matches(".*[-!@#$%^&*()+=<>?/]*.")){
-            throw new IllegalArgumentException("Valor no valido por favor solo escrive texto sin numeros o carateres especiales");
-        }else{
-            this.genero = genero; 
+        if(genero == null || genero.isBlank() || genero.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")){
+            throw new IllegalArgumentException("El genero es incorrecto");
         }
-        
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public String getGenero() {
-        return genero;
+        else{
+            this.genero = genero;
+        }
     }
     
-    @Override 
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public String getCedula(){
+        return this.cedula;
+    }
+    
+    public int getEdad(){
+        return this.edad;
+    }
+    
+    public String genero(){
+        return this.genero;
+    }
+    @Override
     public String toString(){
-        
-        String str ="Nombre: " + this.nombre + "Edad: " + this.edad + "Cedula: " + this.cedula + "Genero: "
-                + this.genero;
+        String str = "Nombre: " + this.nombre +
+                      "\tCedula: " + this.cedula +
+                      "\tEdad: " + this.edad + 
+                      "\tGenero: " + this.genero;
         
         return str;
-        
     }
     
+    
 }
+
  
+
 
 
