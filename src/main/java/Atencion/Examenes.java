@@ -38,10 +38,21 @@ public class Examenes {
         return resultado;
     }
     
+    public void realizarExamenes(){
+        
+        
+    }
+    
+    public void obtenerResultados(){
+        
+        
+    }
+    
+    
     @Override 
     
     public String toString(){
-        String str = "";
+        String str = "Resultado: ";
         return str; 
     }
     
