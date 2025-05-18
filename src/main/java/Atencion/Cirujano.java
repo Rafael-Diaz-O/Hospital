@@ -1,11 +1,13 @@
 
 package Atencion;
+import Urgencias.*;
 
 
-public class Cirujano {
+public class Cirujano extends Persona {
     
     private String quirofano;
     private String tipoProcedimiento; 
+    private HistorialCirugias historial;
     
     public Cirujano(){}
     
@@ -13,6 +15,7 @@ public class Cirujano {
         
         this.quirofano = quirofano;
         this.tipoProcedimiento = tipoProcedimiento;
+        
     }
     
     public void setQuirfano(String quirofano){
@@ -39,6 +42,21 @@ public class Cirujano {
         return tipoProcedimiento;
     }
     
+    public void asignarQuirofanos(){
+        
+        String pacientes = "";
+        
+        if (pacientes != null){
+            
+        }else {
+            
+        }
+    }
+    
+    public void preprarCirugia(){
+        
+        asignarQuirofanos();
+    }
     @Override 
     public String toString(){
         
