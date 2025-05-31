@@ -1,18 +1,19 @@
 
-
-
 package Urgencias.Menu;
 
-import Urgencias.Paciente;
-import Urgencias.HistoriaClinica;
-
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import Atencion.*;
+import Urgencias.HistoriaClinica;
+import Urgencias.Paciente;
 
-public class Menu {
-
+public class UtilClass {
+    
+    
     public static ArrayList<HistoriaClinica> readHistoriaClinica(String filePath, ArrayList<Paciente> pacientes) {
         ArrayList<HistoriaClinica> historiaClinicas = new ArrayList<>();
         String line;
@@ -93,48 +94,81 @@ public class Menu {
         }
         return pacientes;
     }
-
-    public static void main(String[] args) {
-        ArrayList<HistoriaClinica> historiaClinicas ;
-        ArrayList<Paciente> pacientes;
-
-        System.out.println("Creando la lista de Paciente");
-        //pacientes = readPacientes("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\Menu\\info_pacientes.txt");
-    pacientes = readPacientes("info_pacientes.txt");
-        System.out.println("\nINFORMACION DE PACIENTES");
-        for (Paciente p : pacientes) {
-            System.out.println(p.toString());
+    public static ArrayList<Cirujano> leerCirujano(String filePath){
+    
+    ArrayList  <Cirujano> cirujanos = new ArrayList<>();
+    
+    String encabezado = ""; 
+    String nombre = "";
+    String cedula = "" ;
+    String genero = ""; 
+    String quirofano = "";
+    String tipoProcedimiento = ""; 
+    String fechaProcedimiento = "";
+    String horaProcedimiento = "" ;
+    int edad = 0;
+    
+     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+       reader.readLine();
+      while((encabezado=reader.readLine())!=null){
+                
+                String[] parts = encabezado.split(",");
+                
+                if(parts.length>=7){
+                    nombre = parts[0];
+                    cedula = parts[1];
+                    edad = Integer.parseInt(parts[2]);
+                    genero = parts[3];
+                    quirofano = parts[4];
+                    tipoProcedimiento = parts[5];
+                    fechaProcedimiento = parts [6];
+                    horaProcedimiento = parts[7];
+                    
+                    
+                    try{
+                        cirujanos.add(new Cirujano(nombre,cedula,edad,genero,quirofano,tipoProcedimiento,
+                                fechaProcedimiento,horaProcedimiento));
+                    }catch(Exception e){
+                        System.out.println("Error al crear el objecto: " + e.getMessage());
+                    }
+                }else{
+                    System.out.println("No hay suficientes datos para crear el objeto");
+                }
+                
+            }
+            
+            reader.close();
+            
+        } catch (IOException e) {
+            System.err.println("Error en la lectura del archivo: " + e.getMessage());
         }
-       
-        System.out.println("\nINFORMACION DE HISTORIA CLINICA");
-        
-        /*for (HistoriaClinica u : historiaClinicas) {
-            System.out.println(u.toString());
-        }
-        */
-
-        System.out.println("\nCreando lista de Historias Clinicas");
-       // historiaClinicas = readHistoriaClinica("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\\\Menu\\info_historiaClinicas.txt", pacientes);
-       historiaClinicas = readHistoriaClinica("info_historiaClinicas.txt",pacientes);
-        System.out.println("\nINFORMATION DE HISTORIAS CLINICAS\n");
-       // System.out.println("| %-15s | %-15s | %-20s | %-25s | %-15s | %-10s | %-10s |\n","HORA","FECHA","DIAGNOSTICO","EPS","TIPO DE SAGRE","ID");
-        //for (HistoriaClinica h : historiaClinicas) {
-        //    System.out.println(h.toString());
-        System.out.printf("| %-15s | %-15s | %-20s | %-25s | %-15s | %-16s | %-15s |\n",
-                  "Hora Ingreso", "Fecha Ingreso", "Diagnostico", "Incapacidad",
-                  "EPS", "Grupo Sanguineo", "ID Paciente");
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------");
-
-       // }
-       for (HistoriaClinica h : historiaClinicas) {
-    Paciente p = h.getPaciente();
-    System.out.printf("| %-15s | %-15s | %-20s | %-25s | %-15s | %-16s | %-15s |\n",
-                      h.getHoraIngreso(), h.getFechaIngreso(), h.getDiagnosticoYrecomendaciones(),
-                      h.getIncapacidad(),
-                      p != null ? p.getEps() : "Sin paciente",
-                      p != null ? p.getGrupoSanguineo() : "Sin paciente",
-                      p != null ? p.getId() : "Sin paciente");
-}
+        return cirujanos;
     }
+         
+     public static  void escribirCirujano(String filePath, ArrayList<Cirujano> cirujanos){
+         
+         try (BufferedWriter escribir = new BufferedWriter(new FileWriter(filePath))){
+         escribir.write("Lista de cirujias");
+         escribir.write(""); 
+         escribir.newLine();
+         
+         String linea = ""; 
+          for (Cirujano  c: cirujanos){
+              
+              linea = c.toString(); 
+              escribir.write(linea);
+              escribir.newLine();
+              
+          }
+         
+         }catch (IOException e){
+             System.err.println("Error: No se pudo crear el archivo " + e.getMessage());
+         }
+         
+         
+     }
+     
+     
+    
+    
 }
-//valeneene
