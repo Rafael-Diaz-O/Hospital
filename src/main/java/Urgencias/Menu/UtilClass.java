@@ -147,7 +147,7 @@ public class UtilClass {
          
      public static  void escribirCirujano(String filePath, ArrayList<Cirujano> cirujanos){
          
-         try (BufferedWriter escribir = new BufferedWriter(new FileWriter(filePath))){
+         try (BufferedWriter escribir = new BufferedWriter(new FileWriter(filePath,true))){
          escribir.write("Lista de cirujias");
          escribir.write(""); 
          escribir.newLine();
@@ -160,7 +160,9 @@ public class UtilClass {
               escribir.newLine();
               
           }
-         
+          escribir.close(); 
+         System.out.println("\nArchivo creado : " + filePath);
+          
          }catch (IOException e){
              System.err.println("Error: No se pudo crear el archivo " + e.getMessage());
          }
