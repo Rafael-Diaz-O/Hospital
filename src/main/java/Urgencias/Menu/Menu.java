@@ -139,13 +139,15 @@ public class Menu extends UtilClass {
    
        //Parte de Rafael 
        
-         System.out.println("Leyendo el archivo ");
+        System.out.println(" \n\t\t\t\t HISTORIA CLINICA ");
+        
+         System.out.println("\n\t\t\t\tPROCESANDO LA INFORMACION.... ");
         
          
         ArrayList <Cirujano> cirujanos  = leerCirujano("./Informacion_cirujias.txt");
         
         
-        System.out.println("Escribiendo la informacion");
+        System.out.println("\n\t\t\t\tRESULTADO ");
         for(Cirujano c: cirujanos){
             System.out.println(c.toString());
         }
