@@ -9,7 +9,7 @@ package Urgencias;
  *
  * @author valen
  */
-public class Paciente {
+public class Paciente extends Persona {
     
 private String eps;
     private String grupoSanguineo;
@@ -21,7 +21,8 @@ private String eps;
         this.id = "";
     }
 
-    public Paciente(String eps, String grupoSanguineo, String id) {
+    public Paciente(String eps, String grupoSanguineo, String id,String nombre,String cedula,int edad,String genero) {
+        super(nombre,cedula,edad,genero);
         this.setEps(eps);
         this.setGrupoSanguineo(grupoSanguineo);
         this.setId(id);
@@ -62,7 +63,7 @@ private String eps;
 
     @Override
     public String toString() {
-        return eps + "," + grupoSanguineo + "," + id;
+        return super.toString()+eps + "," + grupoSanguineo + "," + id;
        // String str;
        // str=String.format("| %-20s | %-30s | %-20s |", eps,grupoSanguineo,id);
        // return str;
