@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import Atencion.Cirujano;
+import Atencion.*;
 
 public class UtilClass {
      public static ArrayList<Cirujano> leerCirujano(String filePath){
@@ -20,7 +20,7 @@ public class UtilClass {
     String genero = ""; 
     String quirofano = "";
     String tipoProcedimiento = ""; 
-    String fechaProcedmiento = "";
+    String fechaProcedimiento = "";
     String horaProcedimiento = "" ;
     int edad = 0;
     
@@ -33,16 +33,19 @@ public class UtilClass {
                 if(parts.length>=7){
                     nombre = parts[0];
                     cedula = parts[1];
-                    quirofano = parts[2];
-                    tipoProcedimiento = parts[3];
-                    horaProcedimiento = parts[4];
-                    edad = Integer.parseInt(parts[5]);
+                    edad = Integer.parseInt(parts[2]);
+                    genero = parts[3];
+                    quirofano = parts[4];
+                    tipoProcedimiento = parts[5];
+                    fechaProcedimiento = parts [6];
+                    horaProcedimiento = parts[7];
                     
-                   
+        
                    
                     
                     try{
-                        books.add(new Book(name,value,authorName,id,nationality));
+                        cirujanos.add(new Cirujano(nombre,cedula,edad,genero,quirofano,tipoProcedimiento,
+                                fechaProcedimiento,horaProcedimiento));
                     }catch(Exception e){
                         System.out.println("Error creating the object: " + e.getMessage());
                     }
