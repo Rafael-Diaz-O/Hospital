@@ -1,18 +1,18 @@
 
 
+
 package Urgencias.Menu;
 
-import Urgencias.*;
+import Urgencias.Paciente;
 import Urgencias.HistoriaClinica;
-import Atencion .*; 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Menu extends UtilClass {
- /*
+public class Menu {
+
     public static ArrayList<HistoriaClinica> readHistoriaClinica(String filePath, ArrayList<Paciente> pacientes) {
         ArrayList<HistoriaClinica> historiaClinicas = new ArrayList<>();
         String line;
@@ -92,7 +92,7 @@ public class Menu extends UtilClass {
             System.err.println("Error al leer el archivo de pacientes:" + e.getMessage());
         }
         return pacientes;
-    } */
+    }
 
     public static void main(String[] args) {
         ArrayList<HistoriaClinica> historiaClinicas ;
@@ -100,7 +100,7 @@ public class Menu extends UtilClass {
 
         System.out.println("Creando la lista de Paciente");
         //pacientes = readPacientes("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\Menu\\info_pacientes.txt");
-    pacientes = readPacientes("./info_pacientes.txt");
+    pacientes = readPacientes("info_pacientes.txt");
         System.out.println("\nINFORMACION DE PACIENTES");
         for (Paciente p : pacientes) {
             System.out.println(p.toString());
@@ -115,7 +115,7 @@ public class Menu extends UtilClass {
 
         System.out.println("\nCreando lista de Historias Clinicas");
        // historiaClinicas = readHistoriaClinica("C:\\Users\\valen\\OneDrive\\Documentos\\SEMESTRE_2025-1\\PROGRAMACION_ORIENTADA_A_OBJETOS\\PROYECTO\\\\Menu\\info_historiaClinicas.txt", pacientes);
-        historiaClinicas = readHistoriaClinica("./info_historiaClinicas.txt",pacientes);
+       historiaClinicas = readHistoriaClinica("info_historiaClinicas.txt",pacientes);
         System.out.println("\nINFORMATION DE HISTORIAS CLINICAS\n");
        // System.out.println("| %-15s | %-15s | %-20s | %-25s | %-15s | %-10s | %-10s |\n","HORA","FECHA","DIAGNOSTICO","EPS","TIPO DE SAGRE","ID");
         //for (HistoriaClinica h : historiaClinicas) {
@@ -135,23 +135,6 @@ public class Menu extends UtilClass {
                       p != null ? p.getGrupoSanguineo() : "Sin paciente",
                       p != null ? p.getId() : "Sin paciente");
 }
-       
-   
-       //Parte de Rafael 
-       
-         System.out.println("Leyendo el archivo ");
-        
-         
-        ArrayList <Cirujano> cirujanos  = leerCirujano("./Informacion_cirujias.txt");
-        
-        
-        System.out.println("Escribiendo la informacion");
-        for(Cirujano c: cirujanos){
-            System.out.println(c.toString());
-        }
-        
-        
-        escribirCirujano("./Informacion_cirujias.txt", cirujanos);
-       
     }
 }
+//valeneene
