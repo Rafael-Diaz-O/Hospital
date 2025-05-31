@@ -2,16 +2,17 @@
 
 package Urgencias.Menu;
 
-import Urgencias.Paciente;
+import Urgencias.*;
 import Urgencias.HistoriaClinica;
+import Atencion .*; 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Menu {
-
+public class Menu extends UtilClass {
+ /*
     public static ArrayList<HistoriaClinica> readHistoriaClinica(String filePath, ArrayList<Paciente> pacientes) {
         ArrayList<HistoriaClinica> historiaClinicas = new ArrayList<>();
         String line;
@@ -91,7 +92,7 @@ public class Menu {
             System.err.println("Error al leer el archivo de pacientes:" + e.getMessage());
         }
         return pacientes;
-    }
+    } */
 
     public static void main(String[] args) {
         ArrayList<HistoriaClinica> historiaClinicas ;
@@ -134,6 +135,23 @@ public class Menu {
                       p != null ? p.getGrupoSanguineo() : "Sin paciente",
                       p != null ? p.getId() : "Sin paciente");
 }
+       
+   
+       //Parte de Rafael 
+       
+         System.out.println("Leyendo el archivo ");
+        
+         
+        ArrayList <Cirujano> cirujanos  = leerCirujano("./Informacion_cirujias.txt");
+        
+        
+        System.out.println("Escribiendo la informacion");
+        for(Cirujano c: cirujanos){
+            System.out.println(c.toString());
+        }
+        
+        
+        escribirCirujano("./Informacion_cirujias.txt", cirujanos);
+       
     }
 }
-//valeneene

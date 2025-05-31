@@ -13,6 +13,7 @@ import Urgencias.Paciente;
 
 public class UtilClass {
     
+    
     public static ArrayList<HistoriaClinica> readHistoriaClinica(String filePath, ArrayList<Paciente> pacientes) {
         ArrayList<HistoriaClinica> historiaClinicas = new ArrayList<>();
         String line;
@@ -144,7 +145,7 @@ public class UtilClass {
         return cirujanos;
     }
          
-     public static  void EscribirCirujano(String filePath, ArrayList<Cirujano> cirujanos){
+     public static  void escribirCirujano(String filePath, ArrayList<Cirujano> cirujanos){
          
          try (BufferedWriter escribir = new BufferedWriter(new FileWriter(filePath))){
          escribir.write("Lista de cirujias");
