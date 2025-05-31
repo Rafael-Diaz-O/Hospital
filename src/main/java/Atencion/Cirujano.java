@@ -11,10 +11,12 @@ public class Cirujano extends Persona {
     
     public Cirujano(){}
     
-    public Cirujano(String quirofano,String tipoProcedimiento){
-        
+    public Cirujano(String nombre,String cedula,int edad,String genero,String quirofano,String tipoProcedimiento
+    ,String fechaProcedimiento, String horaProcedimiento){
+        super(nombre,cedula,edad,genero); 
         this.quirofano = quirofano;
         this.tipoProcedimiento = tipoProcedimiento;
+        this.historial = new HistorialCirugias (fechaProcedimiento,horaProcedimiento); 
         
     }
     
@@ -45,7 +47,7 @@ public class Cirujano extends Persona {
     public void asignarQuirofanos(){
         
         String pacientes = "";
-        
+                      
         if (pacientes != null){
             
         }else {
@@ -60,7 +62,7 @@ public class Cirujano extends Persona {
     @Override 
     public String toString(){
         
-        String str = ""; 
+        String str = super.toString() + ""; 
         
         return str;
     }
