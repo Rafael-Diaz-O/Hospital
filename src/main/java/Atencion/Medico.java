@@ -13,17 +13,19 @@ public class Medico extends Personal {
     private String consultorio;
     private int añosExp;
     private int cantidadConsultasDiarias;
+    private int horasTurno;
     
     
     public Medico(){
         
     }
     
-    public Medico(String nombre, String cedula, int edad, String genero, String tareas, String idPersonal, String consultorio, int añosExp, int cantidadConsultasDiarias){
+    public Medico(String nombre, String cedula, int edad, String genero, String tareas, String idPersonal, String consultorio, int añosExp, int cantidadConsultasDiarias, int horasTurno){
         super(nombre, cedula, edad, genero, tareas, idPersonal);
         this.consultorio = consultorio;
         this.añosExp = añosExp;
         this.cantidadConsultasDiarias = cantidadConsultasDiarias;
+        this.horasTurno = horasTurno;
     }
     
     public void setConsultorio(String consultorio){
@@ -54,7 +56,7 @@ public class Medico extends Personal {
     
     public void setCantidadConsultasDiarias(int cantidadConsultasDiarias){
         if(cantidadConsultasDiarias < 0 || cantidadConsultasDiarias > 50){
-            throw new IllegalArgumentException("El rango debe estar entre 0 y 50");
+            throw new IllegalArgumentException("El rango debe estar entre 0 a 50 consultas");
         }
         else{
             this.cantidadConsultasDiarias = cantidadConsultasDiarias;
@@ -65,10 +67,22 @@ public class Medico extends Personal {
         return this.cantidadConsultasDiarias;
     }
     
+    public void setHorasTurno(int horasTurno){
+        if(horasTurno < 0 || horasTurno > 24){
+            throw new IllegalArgumentException("El rango de horas debe estar entre 0 a 24 horas");
+        }else{
+            this.horasTurno = horasTurno;
+        }
+    }
+    
+    public int getHorasTurno(){
+        return this.horasTurno;
+    }
+    
     @Override
     public String turno(){
-        return "Turno en la mañana";
-    }
+       return "Horas de turno de noche: " + this.horasTurno;
+     }
     
     @Override
     
